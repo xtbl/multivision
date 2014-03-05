@@ -1,5 +1,13 @@
 angular.module('app', ['ngResource', 'ngRoute']);
 
 angular.module('app').config(function ($routeProvider, $locationProvider) {
-	// body...
+	$locationProvider.html5Mode(mode);
+	$routeProvider
+		.when('/', {
+			templateUrl: '/partials/main', 
+			controller: 'mainCtrl'})
+});
+
+angular.module('app').controller('mainCtrl', function($scope) {
+	$scope.myVar = "Angular app";
 });
