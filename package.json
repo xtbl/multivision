@@ -1,0 +1,17 @@
+{
+  "name": "multivision",
+  "version": "0.0.0",
+  "description": "Tech Training",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Cristobal Avila",
+  "license": "BSD",
+  "dependencies": {
+    "express": "~4.0.0-rc2",
+    "jade": "~1.3.0",
+    "nodemon": "~1.0.15",
+    "stylus": "~0.42.3"
+  }
+}
