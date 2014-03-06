@@ -36,6 +36,14 @@ db.on('error', console.error.bind(console, 'connection error...') );
 db.once('open', function callback () {
 	console.log('multivision db opened');
 });
+var messageSchema = mongoose.Schema({message: String});
+var Message = mongoose.model('Message', messageSchema);
+var mongoMessage;
+Message.findOne().exec(function (err, messageDoc) {
+	mongoMessage = messageDoc.message;
+});
+
+var testMessage = "test data from server object";
 
 // app.get('/partials/:partialPath', function (req, res) {
 // 	console.log('server params: ' + req.params.partialPath);
@@ -43,9 +51,12 @@ db.once('open', function callback () {
 // });
 
 app.get('*', function (req, res) {
-	res.render('index');
+	res.render('index', {
+		mongoMessage: mongoMessage,
+		testMessage: testMessage
+	});
 });
 
-var port = 3030;
+var port = 3000;
 app.listen(port);
 console.log('Listening on port ' + port + '...');
