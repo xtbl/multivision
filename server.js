@@ -45,6 +45,7 @@ var messageSchema = mongoose.Schema({message: String});
 var Message = mongoose.model('Message', messageSchema);
 var mongoMessage;
 Message.findOne().exec(function (err, messageDoc) {
+	console.log('messageDoc is ' + messageDoc);
 	mongoMessage = messageDoc.message;
 });
 
