@@ -16,6 +16,18 @@ module.exports = function (config) {
 		mongoMessage = messageDoc.message;
 	});
 
-	var testMessage = "test data from server object";
-	
+	var userSchema = mongoose.Schema({
+		firstName: String,
+		lastName: String,
+		userName: String
+	}); 
+	var User = mongoose.model('User', userSchema);
+
+	User.find({}).exec(function (err, collection) {
+		if(collection.length === 0){
+			User.create({firstName:'Joe', lastName:'Jones', userName: 'joe'});
+			User.create({firstName:'Jim', lastName:'Johnson', userName: 'jim'});
+			User.create({firstName:'Jane', lastName:'Jarred', userName: 'jane'});
+		} 
+	}); 
 };
