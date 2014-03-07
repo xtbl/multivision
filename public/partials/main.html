@@ -1,4 +1,14 @@
-<div>
-	<h1>Main Template</h1>
-	<h2>{{ myVar }}</h2>
+<div class="container">
+	<div class="jumbotron">
+		<h1>MultiVision</h1>
+		<p>Welcome to MultiVision. The most comprehensive and complete collection of extreme tech training videos.</p>
+	</div>
+	<div class="row">
+		<div class="col-md-6">
+			<div ng-include="'/partials/featured-courses.html'"></div>
+		</div>
+		<div class="col-md-6">
+			<div ng-include="'/partials/new-courses.html'"></div>
+		</div>
+	</div>
 </div>
