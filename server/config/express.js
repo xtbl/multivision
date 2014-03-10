@@ -1,5 +1,10 @@
 var express = require('express'),
-	stylus = require('stylus');
+	stylus = require('stylus'),
+	morgan = require('morgan'),
+	bodyParser = require('body-parser'),
+	cookieParser = require('cookie-parser'),
+	session = require('express-session'),
+	passport = require('passport');
 
 module.exports = function (app, config) {
 
@@ -10,14 +15,15 @@ module.exports = function (app, config) {
 	app.set('views', config.rootPath  + '/server/views');
 	app.set('view engine', 'jade');
 
-	var logErrors = function (err, req, res, next) {
-	  console.error(err.stack);
-	  next(err);
-	};
+	app.use(morgan('dev'));
+	app.use(bodyParser());
 
-	app.use(logErrors);
-	//app.use(express.bodyParser());
-
+	// authentication
+	app.use(cookieParser());
+	app.use(session({secret:'multi vision unicorns'}));
+	app.use(passport.initialize());
+	app.use(passport.session());
+ 
 	app.use(stylus.middleware(
 		{
 			src: config.rootPath + '/public',

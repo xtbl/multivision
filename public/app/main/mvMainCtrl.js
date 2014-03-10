@@ -1,5 +1,4 @@
 angular.module('app').controller('mvMainCtrl', function($scope) {
-	console.log('mainCtrl');
 	$scope.myVar = "Angular app";
 	$scope.courses = [
 	    {name: 'C# for Sociopaths', featured: true, published: new Date('10/5/2013')},
