@@ -18,7 +18,7 @@ passport.use(new LocalStrategy(
 	function (userName, password, done) {
 		console.log('passport.use ', userName);
 		User.findOne({userName: userName}).exec(function (err, user) {
-			if(user){
+			if(user && user.authenticate(password) ){
 				return done(null, user);
 			} else {
 				return done(null, false);
