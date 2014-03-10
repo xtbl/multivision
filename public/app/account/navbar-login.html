@@ -8,4 +8,17 @@
 		</div>
 		<button class="btn btn-primary" ng-click="signin(username, password)">SignIn</button>
 	</form>
+	<ul class="nav navbar-nav navbar-right" ng-show="identity.isAuthenticated()">
+		<li class="dropdown">
+			<a class="dropdown-toggle" href="" data-toggle="dropdown">
+				{{ identity.currentUser.firstName + " " + identity.currentUser.lastName }}
+				<b class="caret"></b>
+			</a>
+			<ul class="dropdown-menu">
+				<li>
+					<a href="" ng-click="signout()">SignOut</a>
+				</li>
+			</ul>
+		</li>
+	</ul>
 </div>
