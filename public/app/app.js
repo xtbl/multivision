@@ -19,6 +19,10 @@ angular.module('app').config(function ($routeProvider, $locationProvider) {
 			templateUrl: '/app/admin/user-list.html', 
 			controller: 'mvUserListCtrl',
 			resolve: routeRoleChecks.admin
+		})
+		.when('/signup', {
+			templateUrl: '/partials/account/signup.html',
+			controller: 'mvSignupCtrl'
 		});
 });
 
