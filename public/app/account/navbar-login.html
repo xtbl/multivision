@@ -15,6 +15,9 @@
 				<b class="caret"></b>
 			</a>
 			<ul class="dropdown-menu">
+				<li ng-show="identity.currentUser.isAdmin()">
+					<a href="/admin/users">User Admin</a>
+				</li>
 				<li>
 					<a href="" ng-click="signout()">SignOut</a>
 				</li>
