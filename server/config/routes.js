@@ -1,6 +1,7 @@
 var auth = require('./auth'),
 	mongoose = require('mongoose'),
-	User = mongoose.model('User');
+	User = mongoose.model('User'),
+	users = require('../controllers/users')
 
 module.exports = function (app) {
 	// app.get('/partials/:partialPath', function (req, res) {
@@ -8,12 +9,9 @@ module.exports = function (app) {
 	// 	res.render('partials/' + req.params.partialPath);
 	// });
 
-	app.get('/api/users', auth.requiresRole('admin'), function (req, res) {
-		User.find({}).exec(function (err, collection) {
-			console.log('collection', collection);
-			res.send(collection);
-		});
-	});
+	app.get('/api/users', auth.requiresRole('admin'), users.getUsers);
+
+	app.post('/api/users', users.createUser);
 
 	app.post('/login', auth.authenticate);
 
