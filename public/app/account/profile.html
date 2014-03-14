@@ -2,7 +2,7 @@
 	<div class="well">
 		<form class="form-horizontal" name="profileForm">
 			<fieldset>
-				<legend>New User Information</legend>
+				<legend>User Profile</legend>
 				<div class="form-group">
 					<label class="col-md-2 control-label" for="email">Email</label>
 					<div class="col-md-10">
@@ -10,26 +10,26 @@
 					</div>
 				</div>
 				<div class="form-group">
-					<label class="col-md-2 control-label" for="password">Password</label>
-					<div class="col-md-10">
-						<input class="form-control" name="password" type="password" placeholder="Password" ng-model="password" required>
-					</div>
-				</div>
-				<div class="form-group">
 					<label class="col-md-2 control-label" for="firstName">First Name</label>
 					<div class="col-md-10">
-						<input class="form-control" name="firstName" type="text" placeholder="First Name" ng-model="firstName" required>
+						<input class="form-control" name="firstName" type="text" placeholder="First Name" ng-model="fname" required>
 					</div>
 				</div>
 				<div class="form-group">
 					<label class="col-md-2 control-label" for="lastName">Last Name</label>
 					<div class="col-md-10">
-						<input class="form-control" name="lastName" type="text" placeholder="Last Name" ng-model="lastName" required>
+						<input class="form-control" name="lastName" type="text" placeholder="Last Name" ng-model="lname" required>
 					</div>
 				</div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label" for="password">Password</label>
+                    <div class="col-md-10">
+                        <input class="form-control" name="password" type="password" placeholder="Password" ng-model="password">
+                    </div>
+                </div>
 				<div class="form-group">
 					<div class="col-md-10 col-md-offset-2">
-						<button class="btn btn-primary" ng-click="signup()" ng-disabled="signupForm.invalid">Submit</button>
+						<button class="btn btn-primary" ng-click="update()" ng-disabled="signupForm.invalid">Submit</button>
 						&nbsp;
 						<a class="btn btn-default" href="/">Cancel</a>
 					</div>
