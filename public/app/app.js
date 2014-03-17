@@ -30,7 +30,11 @@ angular.module('app').config(function ($routeProvider, $locationProvider) {
 			controller: 'mvProfileCtrl',
 			resolve: routeRoleChecks.user
 		})
-		.when('/signup', {
+		.when('/courses', {
+			templateUrl: '/app/courses/course-list.html',
+			controller: 'mvCourseListCtrl'
+		})
+ 		.when('/signup', {
 			templateUrl: '/app/account/signup.html',
 			controller: 'mvSignupCtrl'
 		});

@@ -28,7 +28,7 @@ exports.createUser = function (req, res) {
 		})
 	})
 };
-
+//TODO: fix slow server response in PUT. 09 Use Profile
 exports.updateUser = function (req, res) {
     var userUpdates = req.body;
     if (req.user._id != userUpdates._id && !req.user.hasRole('admin')) {
